@@ -28,6 +28,7 @@ Route::middleware(['auth', 'role:staf'])->group(function () {
     Route::get('/staf/dashboard', function () {
         return view('staf.dashboard');
     })->name('staf.dashboard');
+    Route::resource('staf/mata-kuliah', \App\Http\Controllers\Staf\MataKuliahController::class)->names('staf.mata-kuliah');
 });
 
 // 4. Ruangan Khusus Dosen (Dijaga middleware role:dosen)
