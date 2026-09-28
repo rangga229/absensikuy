@@ -46,4 +46,10 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    // Relasi ke Jadwal Kelas (Khusus Dosen)
+    public function jadwalKelas()
+    {
+        return $this->hasMany(JadwalKelas::class, 'dosen_id');
+    }
 }

@@ -20,6 +20,9 @@
                         <x-nav-link :href="route('staf.mata-kuliah.index')" :active="request()->routeIs('staf.mata-kuliah.*')">
                             {{ __('Mata Kuliah') }}
                         </x-nav-link>
+                        <x-nav-link :href="route('staf.jadwal-kelas.index')" :active="request()->routeIs('staf.jadwal-kelas.*')">
+                            {{ __('Jadwal Kelas') }}
+                        </x-nav-link>
                     @elseif(Auth::user()->role === 'dosen')
                         <x-nav-link :href="route('dosen.dashboard')" :active="request()->routeIs('dosen.dashboard')">
                             {{ __('Dashboard') }}
@@ -96,6 +99,9 @@
                     </x-responsive-nav-link>
                     <x-responsive-nav-link :href="route('staf.mata-kuliah.index')" :active="request()->routeIs('staf.mata-kuliah.*')">
                         {{ __('Mata Kuliah') }}
+                    </x-responsive-nav-link>
+                    <x-responsive-nav-link :href="route('staf.jadwal-kelas.index')" :active="request()->routeIs('staf.jadwal-kelas.*')">
+                        {{ __('Jadwal Kelas') }}
                     </x-responsive-nav-link>
                 @elseif(Auth::user()->role === 'dosen')
                     <x-responsive-nav-link :href="route('dosen.dashboard')" :active="request()->routeIs('dosen.dashboard')">
