@@ -54,6 +54,14 @@
                             <x-input-error class="mt-2" :messages="$errors->get('nama_kelas')" />
                         </div>
 
+                        <!-- Input Lokasi -->
+                        <div class="mb-4">
+                            <x-input-label for="lokasi" value="Lokasi Ruangan" />
+                            <x-text-input id="lokasi" name="lokasi" type="text" class="mt-1 block w-full"
+                                :value="old('lokasi', $jadwal_kelas->lokasi ?? '')" required placeholder="Contoh: Lab Komputer 1 / Gedung A Ruang 101" />
+                            <x-input-error class="mt-2" :messages="$errors->get('lokasi')" />
+                        </div>
+
                         <!-- Hari -->
                         <div class="mb-4">
                             <x-input-label for="hari" value="Hari" />

@@ -46,6 +46,7 @@ class JadwalKelasController extends Controller
             'dosen_id' => 'required|exists:users,id',
             'nama_kelas' => 'required|string|max:50',
             'hari' => 'required|string',
+            'lokasi' => 'required|string|max:100',
             'jam_mulai' => 'required|date_format:H:i',
             'jam_selesai' => 'required|date_format:H:i|after:jam_mulai',
         ]);
@@ -93,6 +94,7 @@ class JadwalKelasController extends Controller
             'dosen_id' => 'required|exists:users,id',
             'nama_kelas' => 'required|string|max:50',
             'hari' => 'required|string',
+            'lokasi' => 'required|string|max:100',
             'jam_mulai' => 'required|date_format:H:i',
             'jam_selesai' => 'required|date_format:H:i|after:jam_mulai',
         ]);

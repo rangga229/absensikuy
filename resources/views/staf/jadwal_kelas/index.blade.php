@@ -40,6 +40,9 @@
                                     Kelas</th>
                                 <th
                                     class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Lokasi</th>
+                                <th
+                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                     Jadwal</th>
                                 <th
                                     class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -62,6 +65,8 @@
                                     <td class="px-6 py-4 whitespace-nowrap">{{ $jadwal->dosen->name }}</td>
 
                                     <td class="px-6 py-4 whitespace-nowrap">{{ $jadwal->nama_kelas }}</td>
+
+                                    <td class="px-6 py-4 whitespace-nowrap">{{ $jadwal->lokasi }}</td>
 
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <span class="font-semibold text-gray-700">{{ $jadwal->hari }}</span><br>
