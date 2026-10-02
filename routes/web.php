@@ -39,6 +39,14 @@ Route::middleware(['auth', 'role:dosen'])->group(function () {
     })->name('dosen.dashboard');
 
     Route::get('/dosen/jadwal-mengajar', [\App\Http\Controllers\Dosen\JadwalMengajarController::class, 'index'])->name('dosen.jadwal.index');
+
+    // Rute Sesi Absensi 
+    Route::post('/dosen/sesi-absensi', [\App\Http\Controllers\Dosen\SesiAbsensiController::class, 'store'])->name('dosen.sesi.store');
+    Route::get('/dosen/sesi-absensi/{id}', [\App\Http\Controllers\Dosen\SesiAbsensiController::class, 'show'])->name('dosen.sesi.show');
+    Route::put('/dosen/sesi-absensi/{id}', [\App\Http\Controllers\Dosen\SesiAbsensiController::class, 'update'])->name('dosen.sesi.update');
+
+    // Tambahkan Rute Rekap di sini:
+    Route::get('/dosen/sesi-absensi/{id}/rekap', [\App\Http\Controllers\Dosen\SesiAbsensiController::class, 'rekap'])->name('dosen.sesi.rekap');
 });
 
 // 5. Ruangan Khusus Mahasiswa (Dijaga middleware role:mahasiswa)
@@ -51,6 +59,10 @@ Route::middleware(['auth', 'role:mahasiswa'])->group(function () {
     Route::get('/mahasiswa/krs', [\App\Http\Controllers\Mahasiswa\KrsController::class, 'index'])->name('mahasiswa.krs.index');
     Route::post('/mahasiswa/krs', [\App\Http\Controllers\Mahasiswa\KrsController::class, 'store'])->name('mahasiswa.krs.store');
     Route::delete('/mahasiswa/krs/{id}', [\App\Http\Controllers\Mahasiswa\KrsController::class, 'destroy'])->name('mahasiswa.krs.destroy');
+
+    // Rute Absensi / Scanner Mahasiswa
+    Route::get('/mahasiswa/scan', [\App\Http\Controllers\Mahasiswa\AbsensiController::class, 'scan'])->name('mahasiswa.scan');
+    Route::post('/mahasiswa/scan', [\App\Http\Controllers\Mahasiswa\AbsensiController::class, 'store'])->name('mahasiswa.scan.store');
 });
 
 // ==========================================

@@ -19,6 +19,15 @@ class JadwalMengajarController extends Controller
             ->where('dosen_id', $dosen_id)
             ->get();
 
-        return view('dosen.jadwal.index', compact('jadwal_mengajar'));
+        // Ambil array ID jadwal kelas milik dosen ini
+        $jadwal_ids = $jadwal_mengajar->pluck('id')->toArray();
+
+        // 2. Tarik riwayat sesi absensi berdasarkan jadwal tersebut (Tabel Bawah)
+        $riwayat_sesi = \App\Models\SesiAbsensi::with(['jadwalKelas.mataKuliah'])
+            ->whereIn('jadwal_kelas_id', $jadwal_ids)
+            ->orderBy('created_at', 'desc')
+            ->get();
+
+        return view('dosen.jadwal.index', compact('jadwal_mengajar', 'riwayat_sesi'));
     }
 }

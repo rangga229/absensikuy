@@ -37,6 +37,9 @@
                         <x-nav-link :href="route('mahasiswa.krs.index')" :active="request()->routeIs('mahasiswa.krs.*')">
                             {{ __('KRS Saya') }}
                         </x-nav-link>
+                        <x-nav-link :href="route('mahasiswa.scan')" :active="request()->routeIs('mahasiswa.scan')">
+                            {{ __('Scan Absensi') }}
+                        </x-nav-link>
                     @endif
 
                 </div>
@@ -122,6 +125,9 @@
                     </x-responsive-nav-link>
                     <x-responsive-nav-link :href="route('mahasiswa.krs.index')" :active="request()->routeIs('mahasiswa.krs.*')">
                         {{ __('KRS Saya') }}
+                    </x-responsive-nav-link>
+                    <x-responsive-nav-link :href="route('mahasiswa.scan')" :active="request()->routeIs('mahasiswa.scan')">
+                        {{ __('Scan Absensi') }}
                     </x-responsive-nav-link>
                 @endif
             </div>

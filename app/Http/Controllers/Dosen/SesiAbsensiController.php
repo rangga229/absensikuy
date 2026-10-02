@@ -53,4 +53,18 @@ class SesiAbsensiController extends Controller
 
         return redirect()->route('dosen.jadwal.index')->with('success', 'Sesi absensi berhasil ditutup. Mahasiswa tidak bisa absen lagi.');
     }
+
+    // Fungsi melihat daftar hadir mahasiswa
+    public function rekap($id)
+    {
+        $sesi = SesiAbsensi::with(['jadwalKelas.mataKuliah'])->findOrFail($id);
+
+        // Tarik data kehadiran beserta relasi mahasiswanya
+        $daftar_hadir = \App\Models\Kehadiran::with('mahasiswa')
+            ->where('sesi_absensi_id', $id)
+            ->orderBy('waktu_hadir', 'asc')
+            ->get();
+
+        return view('dosen.sesi.rekap', compact('sesi', 'daftar_hadir'));
+    }
 }
