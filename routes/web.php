@@ -37,6 +37,8 @@ Route::middleware(['auth', 'role:dosen'])->group(function () {
     Route::get('/dosen/dashboard', function () {
         return view('dosen.dashboard');
     })->name('dosen.dashboard');
+
+    Route::get('/dosen/jadwal-mengajar', [\App\Http\Controllers\Dosen\JadwalMengajarController::class, 'index'])->name('dosen.jadwal.index');
 });
 
 // 5. Ruangan Khusus Mahasiswa (Dijaga middleware role:mahasiswa)

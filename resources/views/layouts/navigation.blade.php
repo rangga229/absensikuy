@@ -27,6 +27,9 @@
                         <x-nav-link :href="route('dosen.dashboard')" :active="request()->routeIs('dosen.dashboard')">
                             {{ __('Dashboard') }}
                         </x-nav-link>
+                        <x-nav-link :href="route('dosen.jadwal.index')" :active="request()->routeIs('dosen.jadwal.*')">
+                            {{ __('Jadwal Mengajar') }}
+                        </x-nav-link>
                     @else
                         <x-nav-link :href="route('mahasiswa.dashboard')" :active="request()->routeIs('mahasiswa.dashboard')">
                             {{ __('Dashboard') }}
@@ -109,6 +112,9 @@
                 @elseif(Auth::user()->role === 'dosen')
                     <x-responsive-nav-link :href="route('dosen.dashboard')" :active="request()->routeIs('dosen.dashboard')">
                         {{ __('Dashboard') }}
+                    </x-responsive-nav-link>
+                    <x-responsive-nav-link :href="route('dosen.jadwal.index')" :active="request()->routeIs('dosen.jadwal.*')">
+                        {{ __('Jadwal Mengajar') }}
                     </x-responsive-nav-link>
                 @else
                     <x-responsive-nav-link :href="route('mahasiswa.dashboard')" :active="request()->routeIs('mahasiswa.dashboard')">
