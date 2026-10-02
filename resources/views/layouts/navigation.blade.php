@@ -31,6 +31,9 @@
                         <x-nav-link :href="route('mahasiswa.dashboard')" :active="request()->routeIs('mahasiswa.dashboard')">
                             {{ __('Dashboard') }}
                         </x-nav-link>
+                        <x-nav-link :href="route('mahasiswa.krs.index')" :active="request()->routeIs('mahasiswa.krs.*')">
+                            {{ __('KRS Saya') }}
+                        </x-nav-link>
                     @endif
 
                 </div>
@@ -108,8 +111,11 @@
                         {{ __('Dashboard') }}
                     </x-responsive-nav-link>
                 @else
-                    <x-responsive-nav-link :href="route('mahasiswa.dashboard')" :active="request()->requestIs('mahasiswa.dashboard')">
+                    <x-responsive-nav-link :href="route('mahasiswa.dashboard')" :active="request()->routeIs('mahasiswa.dashboard')">
                         {{ __('Dashboard') }}
+                    </x-responsive-nav-link>
+                    <x-responsive-nav-link :href="route('mahasiswa.krs.index')" :active="request()->routeIs('mahasiswa.krs.*')">
+                        {{ __('KRS Saya') }}
                     </x-responsive-nav-link>
                 @endif
             </div>

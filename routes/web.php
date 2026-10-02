@@ -44,6 +44,11 @@ Route::middleware(['auth', 'role:mahasiswa'])->group(function () {
     Route::get('/mahasiswa/dashboard', function () {
         return view('mahasiswa.dashboard');
     })->name('mahasiswa.dashboard');
+
+    // Rute KRS Mahasiswa
+    Route::get('/mahasiswa/krs', [\App\Http\Controllers\Mahasiswa\KrsController::class, 'index'])->name('mahasiswa.krs.index');
+    Route::post('/mahasiswa/krs', [\App\Http\Controllers\Mahasiswa\KrsController::class, 'store'])->name('mahasiswa.krs.store');
+    Route::delete('/mahasiswa/krs/{id}', [\App\Http\Controllers\Mahasiswa\KrsController::class, 'destroy'])->name('mahasiswa.krs.destroy');
 });
 
 // ==========================================
